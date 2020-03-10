@@ -1,0 +1,26 @@
+<% include partials/_header %>
+
+
+
+
+      <div align="center">
+
+        <h4>  Update Info </h4>
+                <form action="/update/<%= data.id %>" method="POST">                   
+                        <input type="text" name="name" value="<%= data.name %>" placeholder="Name"  autofocus>        <br>             
+                        <input type="text" name="address" value="<%= data.address %>" placeholder="Address">          <br>           
+                        <input type="text" name="phone" value="<%= data.phone %>" placeholder="Phone">						  <br>
+						<input type="text" name="blood" value="<%= data.blood %>" placeholder="Blood">                      <br>
+                        <input type="text" name="roll" value="<%= data.roll %>" placeholder="Roll">         <br>
+                        <input type="text" name="semester" value="<%= data.semester %>" placeholder="Semester">  <br>
+						<input type="text" name="result" value="<%= data.result %>" placeholder="Result">  <br>  <br>
+						                   
+
+                    <button type="submit" > Update  </button>
+                </form>
+           
+    
+  </div>
+
+
+<% include partials/_footer %>

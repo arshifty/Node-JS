@@ -1,0 +1,86 @@
+<% include partials/_header %>
+
+
+            <div align="left" style="float:left; margin-left:10px;">
+            <h5>Search Student </h5>
+                <form action="/search" method="POST">                  
+                        <input type="text" name="roll" placeholder="roll" >                          
+                    <button type="submit" >  Search Roll   </button>
+                </form>
+           
+		   </div>
+			<div align="center" style="float:left;margin-left:100px">
+			
+			<h5>Search Semester </h5>
+                <form action="/semester" method="POST">                  
+                        <input type="text" name="semester" placeholder="semester" >                         
+                    <button type="submit"> Search Semester	   </button>
+                </form>
+            </div>
+
+
+
+            <div align="right" margin-left:10px;>
+<h5>Student Registration</h5>
+                <form action="/add" method="POST">
+                  
+                        <input type="text" name="name" placeholder="Name" autofocus>   <br>                   
+                        <input type="text" name="address" placeholder="Address" >  <br>   
+                        <input type="text" name="phone" placeholder="Phone" >  <br>
+                        <input type="text" name="blood" placeholder="blood" >  <br>
+                        <input type="text" name="roll" placeholder="roll" >  <br>
+                        <input type="text" name="semester" placeholder="semester" >  <br>
+                        <input type="text" name="result" placeholder="result" >  <br> <br>
+                    <button type="submit"  <br>
+                        Add Student
+                    </button>
+                </form>
+            </div>
+     
+		
+   <br>  <br>  <br>
+
+        
+		<div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <td>Serial</td>
+                    <td>Name</td>
+                    <td>Address</td>
+                    <td>Phone</td>					
+					<td>Blood</td>
+					<td>Roll</td>
+					<td>Semester</td>
+					 <td>Result</td>					
+                    <td>Update</td>					
+					 <td>Delete</td>
+                </tr>
+                </thead>
+                <tbody>
+                <% if (data) { %>
+                    <% for(var i = 0; i < data.length; i++) { %>
+                        <tr>
+                            <td><%= (i + 1) %></td>
+                            <td><%= data[i].name %></td>
+                            <td><%= data[i].address %></td>
+                            <td><%= data[i].phone %></td>							
+							<td><%= data[i].blood %></td>
+                            <td><%= data[i].roll %></td>
+                            <td><%= data[i].semester %></td>
+							 <td><%= data[i].result %></td>	
+                            <td>    <a href="/update/<%= data[i].id %>" class="btn btn-info">Edit</a>   </td>
+							<td>  <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Delete</a>  </td>
+							
+                        </tr>
+                    <% } %>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+		
+		<br>
+		
+
+
+<% include partials/_footer %>

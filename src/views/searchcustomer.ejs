@@ -1,0 +1,49 @@
+<% include partials/_header %>
+
+<hr>
+   <div align="center"> Go To <a href="/" class="btn btn-info">Home</a> </div> 
+<hr>
+ 
+		<div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <td>Serial</td>
+                    <td>Name</td>
+                    <td>Address</td>
+                    <td>Phone</td>					
+					<td>Blood</td>
+					<td>Roll</td>
+					<td>Semester</td>
+					 <td>Result</td>					
+                    <td>Update</td>					
+					 <td>Delete</td>
+                </tr>
+                </thead>
+                <tbody>
+                <% if (data) { %>
+                    <% for(var i = 0; i < data.length; i++) { %>
+                        <tr>
+                            <td><%= (i + 1) %></td>
+                            <td><%= data[i].name %></td>
+                            <td><%= data[i].address %></td>
+                            <td><%= data[i].phone %></td>							
+							<td><%= data[i].blood %></td>
+                            <td><%= data[i].roll %></td>
+                            <td><%= data[i].semester %></td>
+							 <td><%= data[i].result %></td>	
+                            <td>    <a href="/update/<%= data[i].id %>" class="btn btn-info">Edit</a>   </td>
+							<td>  <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Delete</a>  </td>
+							
+                        </tr>
+                    <% } %>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+		
+		<br>
+		
+
+
+<% include partials/_footer %>
